@@ -1,0 +1,280 @@
+.header
+    position: relative
+    color: $blue
+    &__container
+        display: flex
+        height: 108px
+        align-items: center
+        justify-content: space-between
+        flex-direction: column
+        @include plus700()
+            flex-direction: row
+            justify-content: space-between
+            align-items: center
+    &__left, &__right
+        display: flex
+        align-items: center
+
+    &__left
+        display: flex
+        align-items: center
+        height: 81px
+        @include plus700()
+            height: unset
+        &__logo
+            @include plus700()
+                margin-right: 40px
+            @include plus1025()
+                margin-right: 60px
+            @include plus1441()
+                margin-right: 50px
+            &.inside
+                left: 20px
+                display: none
+                @include plus700()
+                    display: unset
+                    margin-right: 9vw
+                @include plus1025()
+                    margin-right: 0
+                    position: absolute
+                    left: 30px
+        &__categories
+            &__button
+                display: none
+                cursor: pointer
+                font-size: 18px
+                line-height: 24px
+                @include plus700()
+                    display: block
+                span
+                    display: none  
+                    align-items: center             
+                    &::after
+                        content: url(../images/polygon.svg)
+                        display: block
+                        transform: rotate(0deg)
+                        margin-left: 10px
+                        transition: .35s ease-out
+                        
+                @include plus450()
+                    span
+                        display: flex
+                    svg
+                        display: none
+                @include plus1441()
+                    font-size: 22px
+                    line-height: 29px
+                &__close
+                    position: absolute
+                    right: 50%
+                    transform: translateX(50%)
+                    cursor: pointer
+                    top: 70px
+                    @include plus700()
+                        top: 20px
+            &.active
+                .header__left__categories__list
+                    top: 0
+                    transition: .35s ease-out
+                    ul
+                        @include plus700()
+                            padding-top: 20px
+                        @include plus1025()
+                            padding-top: 0
+                        li
+                            white-space: nowrap
+                            display: block
+                            &:not(:last-of-type)
+                                margin-bottom: 20px
+                                @include plus700()
+                                    margin-bottom: 0
+                            @include plus700()
+                                margin-bottom: 20px !important
+                            @include plus1025()
+                                margin-bottom: 0 !important
+                @include plus700()
+                    .header__left__categories__button
+                        span
+                            &::after
+                                transform: rotate(180deg)
+                    
+            &__list
+                transition: .35s ease-in
+                position: absolute
+                right: 0
+                width: 100%
+                z-index: 2
+                background-color: #fff
+                display: flex
+                align-items: center
+                height: 100vh
+                top: -100vh
+                @include plus700()
+                    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16)
+                    top: -165px
+                    height: 165px
+                &__content
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    position: relative
+                    width: 100%
+                    padding: 0 20px
+                    height: 100vh
+                    @include plus700()
+                        height: 165px
+                        justify-content: space-between
+                    @include plus1025()
+                        justify-content: center
+                    ul
+                        display: flex
+                        align-items: center
+                        flex-direction: column
+
+                        @include plus700()
+                            flex-direction: row
+                            flex-wrap: wrap
+                        @include plus1025()
+                        
+                            flex-wrap: nowrap
+                        li
+                            white-space: nowrap
+                            display: inline-block
+                            transition: .25s linear
+                            &:not(:last-of-type)
+                                @include plus700()
+                                    margin-bottom: 20px
+                                    margin-right: 20px
+                                @include plus1025()
+                                    margin-bottom: 0
+                                    // margin-right: 20px
+                                @include plus1441()
+                                    margin-right: 40px
+    &__right
+        display: flex
+        align-items: center
+        justify-content: space-between
+        flex-direction: row-reverse
+        width: 100%
+        @include plus700()
+            flex-direction: row
+            width: unset
+            justify-content: unset
+        &__nav        
+            display: none
+            @include plus1025()
+                display: flex
+                align-items: center
+                margin-right: 60px
+            @include plus1441()
+                margin-right: 80px
+            &__ul
+                display: flex
+                align-items: center
+                li
+                    white-space: nowrap
+                    &:not(:last-of-type)
+                        margin-right: 30px
+                        @include plus1441()
+                            margin-right: 40px
+        &__searchform
+            display: flex
+            align-items: center
+            max-width: 29px
+            overflow: hidden
+            @include plus700()
+                margin-right: 30px
+            
+            &.active
+                max-width: 210px
+                @include plus700()
+                    max-width: 260px
+            > *
+                position: relative
+
+            &__submitbtn
+                margin-right: 10px
+                cursor: pointer
+            &__close
+                margin-left: 10px
+                cursor: pointer
+            input
+                text-align: center
+                font-family: rbtbld
+                font-size: 18px
+                display: inline-block
+                width: 100%
+                line-height: 24px
+                @include plus700()
+                    font-size: 16px
+                    line-height: 21px
+                    font-family: rbtreg
+                &::placeholder
+                    color: $placeholder
+                &::-webkit-search-cancel-button
+                    display: none
+
+        &__langbar
+            height: 35px
+            overflow: visible
+
+            ul
+                display: flex
+                flex-direction: column
+                padding: 3px 14px 8px 7px
+                background-color: #fff
+                overflow: hidden
+                height: 35px
+                position: relative
+                z-index: 1
+                // color: #fff
+                width: 56px
+                &:hover 
+                    @include plus1025()
+                        height: 94px
+                        li
+                            opacity: 1
+                            &.active::after
+                                transition: .35s ease-out
+                                transform: rotate(-180deg)
+                &.togged
+                    height: 94px
+                    li
+                        opacity: 1
+                        &.active::after
+                            transition: .35s ease-out
+                            transform: rotate(-180deg) translateY(0)
+                li
+                    padding: 0
+                    height: 29px
+                    display: inline-block
+                    white-space: nowrap
+
+                    font-size: 22px
+                    line-height: 29px
+                    opacity: 0
+                    transition: opacity .35s linear
+                    @include plus700()
+                        padding: 2.5px 0
+                        font-size: 18px
+                        line-height: 24px
+                    &.active
+                        opacity: 1
+                        display: flex
+                        align-items: center
+                        order: -1
+                        &::after
+                            cursor: pointer
+                            content: url(../images/srch-polygon.svg)
+                            display: inline
+                            transform: rotate(0deg) translateY(-3px)
+                            margin-left: 10px
+                            transition: .35s ease-in
+                            transform-origin: center
+.respo_search_burger
+    display: flex
+    align-items: center
+    .respo__burger
+        margin-left: 30px
+        @include plus700()
+            display: none

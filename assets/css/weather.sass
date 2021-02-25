@@ -1,0 +1,208 @@
+
+.weathercurrency
+    margin-bottom: 10px
+    @include plus700()
+        height: 72px
+        box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16)
+    &__container
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 0
+        @include plus700()
+            height: 100%
+            padding: 0 $containerPadding
+    &__left
+        display: flex
+        align-items: center
+        height: 100%
+        flex-direction: column
+        width: 100%
+        @include plus700()
+            width: unset
+            flex-direction: row
+        &__tabs
+            width: 100%
+            height: 57px
+            display: flex
+            padding: 0 20px
+            align-items: center
+            box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.16)
+            @include plus700()
+                height: 100%
+                box-shadow: none
+            @include plus1025()
+                padding: 0
+                margin-right: 70px
+            &__weather
+                margin-right: 25px
+            &__weather, &__currency
+                display: flex
+                align-items: center
+                justify-content: center
+                height: 100%
+                position: relative
+                width: 76px
+                color: $placeholder
+                cursor: pointer
+                height: 100%
+                font-family: bldreg
+                font-size: 16px
+                line-height: 21px
+                @include plus1441()
+                    font-size: 18px
+                    line-height: 24px
+
+                &.active
+                    color: $fontblack
+                    &::after
+                        content: url(../images/weathcurr-active.svg)
+                        content: ''
+                        background: url(../images/weathcurr-active.svg)
+                        position: absolute
+                        right: 0
+                        bottom: 0
+                        display: inline-block
+                        height: 8px
+                        width: 100%
+
+                        transform: translate(0, 1.5px)
+        &__contents
+            display: flex
+            height: 75px
+            width: 100%
+            padding: 0 5px
+            @include plus700()
+                height: 48px
+                width: unset
+            &__weather
+                display: flex
+                justify-content: space-between
+                align-items: flex-end
+                color: $blue
+                font-size: 18px
+                width: 100%
+                line-height: 24px
+                padding-bottom: 10px
+                @include plus700()
+                    padding-bottom: 0
+                    width: unset
+                    align-items: center
+                > div
+                    display: flex
+                    align-items: center
+
+                    &:not(:last-of-type)
+                        @include plus700()
+                            margin-right: 20px
+                        @include plus1025()
+                            margin-right: 60px
+                &__logos
+                    margin-right: 5px
+                    @include plus700()
+                        margin-right: 16px
+                    img
+                        display: none
+                    
+                    &.sunny
+                        .sunny
+                            display: inline
+                    &.cloudy
+                        .cloudy
+                            display: inline
+                    &.rainy
+                        .rainy
+                            display: inline
+                    &.windy
+                        .windy
+                            display: inline
+                &__right
+                    display: flex
+                    flex-direction: column
+                    align-items: center
+                    white-space: nowrap
+                    &__cels
+                        font-family: rbtreg
+                        position: relative
+                        padding-right: 6px
+                        &::after
+                            position: absolute
+                            content: url(../images/celciusdot.svg)
+                            right: 0
+                            top: -10px
+            &__currency
+                padding-left: 25px
+                display: none
+                justify-content: flex-end
+                flex-direction: column
+                height: 100%
+                width: 100%
+                @include plus700()
+                    padding-left: 0
+                > div
+                    display: flex
+                    align-items: center
+                &__usd
+                    margin-bottom: 9px
+                &__changes
+                    font-size: 18px
+                    line-height: 24px
+                    position: relative
+                    height: 24px
+                    &::after
+                        position: absolute
+                        content: url(../images/currencyarrowUP.svg)
+                        display: flex
+                        // transform: 
+                        right: calc( 100% + 2px )
+                        bottom: 10px
+                    &.red
+                        color: $curRed
+                        &::after
+                            content: url(../images/currencyarrowDOWN.svg)
+                            
+                    &.green
+                        color: $curGreen
+                        &::after
+                            content: url(../images/currencyarrowUP.svg)
+                &__first, &__second
+                    width: 32px
+                    display: inline-block
+                    font-size: 16px
+                    line-height: 21px
+                    font-family: rbtreg
+                    font-weight: bold
+                    &__value
+                        display: inline-block
+                        border-radius: 5px
+                        background-color: #fff
+                        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.2)
+                        color: $blue
+                        height: 24px
+                        font-size: 18px
+                        line-height: 24px
+                &__first__value
+                    padding: 0 10px
+                &__second__value
+                    padding: 0 5px
+                    margin-right: 15px
+
+
+                &__equalSign
+                    margin: 0 11px
+
+        &.currency
+            .weathercurrency__left__contents__weather
+                display: none
+            .weathercurrency__left__contents__currency
+                display: flex
+
+    &__right
+        display: none
+        @include plus1025()
+            display: block
+        &__socialsUL
+            display: grid
+            grid-template-columns: repeat(4, auto)
+            align-items: center
+            grid-gap: 40px
