@@ -1,0 +1,33 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    list-style: none
+
+body
+    height: 100vh
+    display: flex
+
+    align-items: center
+
+.container
+    max-width: 80%
+    width: 100%
+    margin: 0 auto
+    display: flex
+    align-items: center
+    padding: 0 20px
+.runningstring
+    width: 100%
+    overflow: hidden
+    &__p
+        display: inline-block
+        width: min-content
+        white-space: nowrap
+        animation: 0s goleft linear infinite 
+
+@keyframes goleft
+    0%
+        transform: translateX(0%)
+    100%
+        transform: translateX(-100%)

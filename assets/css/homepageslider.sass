@@ -1,0 +1,212 @@
+.swiper-pagination
+    height: 16px
+    display: grid
+    grid-template-columns: repeat(auto-fill, minmax(auto, 16px))
+    grid-template-rows: auto
+    align-items: center
+    justify-items: center
+    grid-gap: 20px
+    display: flex
+    @include plus1025()
+        grid-gap: 0
+    .swiper-pagination-bullet
+        flex-shrink: 0
+        display: inline-block
+        width:  8px
+        height: 8px
+        border-radius: 50%
+        background-color: #fff
+        border: 3px solid #fff
+        &:not(:last-of-type)
+            margin-right: 20px
+        &.swiper-pagination-bullet-active
+            opacity: 1                  
+            width:  16px
+            height: 16px
+            background-color: transparent
+
+.homeMain
+    width: 100%
+    height: 500px
+    overflow: hidden
+    position: relative
+    margin-bottom: 16px
+    @include plus700()
+        height: 230px
+    @include plus1025()
+        margin-bottom: 25px
+        height: 383px
+    @include plus1441()
+        margin-bottom: 37px
+        height: 535px
+    &__slider
+        width: 100%
+        display: flex
+        height: 100%
+        &__wrapper
+            width: 100%
+            display: flex
+            height: 100%
+        &__slide
+            flex-shrink: 0
+            width: 100%
+            height: 100%
+            overflow: hidden
+            position: relative
+
+            
+            &__container
+                color: #fff
+                width: 100%
+                height: 100%
+                padding: 32px 34px
+                display: flex
+                flex-direction: column
+                @include plus700()
+                    flex-direction: row
+                    display: grid
+                    grid-template-columns: 1fr 1fr
+                    align-items: center
+                    grid-gap: 71px
+                    padding: 26px 113px
+                @include plus1025()
+                    grid-gap: 117px
+                    padding: 50px 130px
+                @include plus1441()
+                    grid-gap: 100px
+                    padding: 60px 130px    
+                @include sizePlus(1797px)
+                    padding: 60px 30px
+            &__left
+                height: 190px
+                width: 100%
+                margin-bottom: 66px
+                @include plus700()
+                    margin-bottom: 0
+                    width: unset
+                    height: 137px
+                @include plus1025()
+                    height: 261px
+                @include plus1441()
+                    height: 397px
+                img
+                    height: 100%
+                    width: 100%
+                    object-fit: cover
+            &__right
+                flex-grow: 1
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+                @include plus700()
+                    height: 100%
+                    flex-grow: 0
+                h1
+                    overflow: hidden
+                    text-overflow: ellipsis
+                    display: -webkit-box
+                    -webkit-line-clamp: 1 /* number of lines to show */
+                    -webkit-box-orient: vertical
+                    font-size: 20px
+                    line-height: 26px
+                    @include plus1025()
+                        font-size: 25px
+                        line-height: 33px
+                    @include plus1441()
+                        -webkit-line-clamp: 2 /* number of lines to show */
+                        font-size: 35px
+                        line-height: 46px
+
+                &__textbox
+                    overflow: hidden
+                    text-overflow: ellipsis
+                    display: -webkit-box
+                    -webkit-line-clamp: 4 /* number of lines to show */
+                    -webkit-box-orient: vertical
+                    font-size: 16px
+                    line-height: 21px
+                    @include plus1025()
+                        -webkit-line-clamp: 6 /* number of lines to show */
+                        font-size: 18px
+                        line-height: 24px
+                    @include plus1441()
+                        font-size: 20px
+                        line-height: 26px
+                        align-self: center
+                        padding: 0 70px
+
+                &__readmore
+                    display: flex
+                    justify-content: center
+                    align-items: center
+
+                    font-size: 16px
+                    line-height: 21px
+
+                    width: 144px
+                    height: 33px
+                    border: 3px solid #fff
+                    align-self: flex-end
+                    @include plus700()
+                    @include plus1025()
+                        font-size: 14px
+                        line-height: 19px
+
+                        width: 159px
+                        height: 37px
+                    @include plus1441()
+                        font-size: 16px
+                        line-height: 21px
+                        width: 239px
+                        height: 55px
+            &__bg
+                position: absolute
+                width: 140%
+                height: 140%
+                right: -20%
+                top: -20%
+                z-index: -1
+
+                background-repeat: no-repeat
+                background-position: center
+                background-size: cover
+                -webkit-filter: blur(10px)
+                -moz-filter: blur(10px)
+                -o-filter: blur(10px)
+                -ms-filter: blur(10px)
+                filter: blur(10px)
+        &__navleft, &__navright
+            cursor: pointer
+            position: absolute
+            width: 44px
+            height: 44px
+            display: flex
+            justify-content: center
+            align-items: center
+            border-radius: 50%
+            background-color: rgba(#fff, .03)
+            top: 50%
+            transform: translateY(-50%)
+        &__pagination
+            position: absolute
+            bottom: 50%
+            right: 50%
+            transform: translate(50%, 50%)
+            @include plus700()
+                bottom: 17px
+            @include plus1025()
+                bottom: 25px
+        &__navleft
+            left: 0
+            @include plus700()
+                left: 20px
+            @include plus1025()
+                left: 28px
+
+        &__navright
+            right: 0
+            @include plus700()
+                right: 20px
+            @include plus1025()
+                right: 28px
+

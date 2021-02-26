@@ -6,9 +6,7 @@ const body = document.querySelector('body')
 const headerCatButton = document.querySelector(
 	'.header__left__categories__button'
 )
-const headerCatButtonRespo = document.querySelector(
-	'.respo__burger'
-)
+const headerCatButtonRespo = document.querySelector('.respo__burger')
 const weatherCurrencyLeft = document.querySelector('.weathercurrency__left')
 const headerCatButtonClose = document.querySelector(
 	'.header__left__categories__button__close'
@@ -52,16 +50,4 @@ searchFormCloseBtn.addEventListener('click', () => {
 currentLang.addEventListener('click', (e) => {
 	e.preventDefault()
 	currentLang.parentElement.classList.toggle('togged')
-})
-
-const weathcurrTabs = document.querySelectorAll('.weathercurrency__left__tabs div')
-console.log(weathcurrTabs)
-
-weathcurrTabs.forEach(each => {
-	each.addEventListener('click', () => {
-		weathcurrTabs.forEach(one => {
-			one.classList.toggle('active')
-		})
-		weatherCurrencyLeft.classList.toggle('currency')
-	})
 })

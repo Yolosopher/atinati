@@ -117,52 +117,47 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"main.js":[function(require,module,exports) {
-var matchmediaMin1025 = window.matchMedia('(min-width: 1025)'); // VARIABLES
-
-var currentLang = document.querySelector('.lang-select li.active');
-var body = document.querySelector('body');
-var headerCatButton = document.querySelector('.header__left__categories__button');
-var headerCatButtonRespo = document.querySelector('.respo__burger');
-var weatherCurrencyLeft = document.querySelector('.weathercurrency__left');
-var headerCatButtonClose = document.querySelector('.header__left__categories__button__close');
-var searchForm = document.querySelector('.header__right__searchform');
-var searchFormCloseBtn = document.querySelector('.header__right__searchform__close'); // headertoggle
-
-var headerCatToggle = function headerCatToggle() {
-  var close = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-
-  if (close) {
-    headerCatButton.parentElement.classList.remove('active');
-  } else {
-    headerCatButton.parentElement.classList.add('active');
+})({"homepage.js":[function(require,module,exports) {
+var weathcurrTabs = document.querySelectorAll('.weathercurrency__left__tabs div');
+weathcurrTabs.forEach(function (each) {
+  each.addEventListener('click', function () {
+    weathcurrTabs.forEach(function (one) {
+      one.classList.toggle('active');
+    });
+    weatherCurrencyLeft.classList.toggle('currency');
+  });
+});
+var homeMainSlider = new Swiper('.homeMain__slider', {
+  slidesPerView: 1,
+  spaceBetween: 1,
+  navigation: {
+    nextEl: '.homeMain__slider__navright',
+    prevEl: '.homeMain__slider__navleft'
+  },
+  pagination: {
+    el: '.homeMain__slider__pagination',
+    type: 'bullets'
+  },
+  loop: true,
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false
   }
+});
+var runningstringP = document.querySelector('.runningString__p');
+
+var setRunningStringSpeed = function setRunningStringSpeed(el) {
+  var width = el.clientWidth;
+  var speed = +width / 4 * 39;
+  console.log(speed);
+  el.style.animationDuration = "".concat(speed, "ms");
+  setTimeout(function () {
+    el.classList.add('running');
+  }, 50);
 };
 
-headerCatButton.addEventListener('click', function () {
-  // body.classList.toggle('noscroll')
-  headerCatToggle();
-});
-headerCatButtonRespo.addEventListener('click', function () {
-  headerCatToggle();
-});
-headerCatButtonClose.addEventListener('click', function () {
-  headerCatToggle(true);
-}); // searchtoggle
-
-searchForm.addEventListener('submit', function (e) {
-  if (!searchForm.classList.contains('active')) {
-    e.preventDefault();
-    searchForm.classList.add('active');
-    return;
-  }
-});
-searchFormCloseBtn.addEventListener('click', function () {
-  searchForm.classList.remove('active');
-});
-currentLang.addEventListener('click', function (e) {
-  e.preventDefault();
-  currentLang.parentElement.classList.toggle('togged');
+window.addEventListener('load', function () {
+  setRunningStringSpeed(runningstringP);
 });
 },{}],"../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
@@ -368,5 +363,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","main.js"], null)
-//# sourceMappingURL=/main.js.map
+},{}]},{},["../../../../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","homepage.js"], null)
+//# sourceMappingURL=/homepage.js.map
