@@ -74,3 +74,10 @@ input[type=number]
     &.homeMain__slider__slide__container
         @include sizePlus(1637px)
             max-width: #{$max-width + $containerPadding * 2} !important
+
+@mixin maxcolumn($num)
+    overflow: hidden
+    text-overflow: ellipsis
+    display: -webkit-box
+    -webkit-line-clamp: $num /* number of lines to show */
+    -webkit-box-orient: vertical

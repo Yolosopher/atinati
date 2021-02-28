@@ -1,0 +1,62 @@
+@keyframes goleft
+    0%
+        transform: translateX(100vw)
+    100%
+        transform: translateX(-100%)
+
+
+
+.runningString
+    text-transform: uppercase
+    font-size: 18px
+    line-height: 24px
+    white-space: nowrap
+    padding: 0 8px
+
+    width: 100%
+    height: 57px
+    margin-bottom: 30px
+    background-color: #E2ECF3
+    -webkit-filter: drop-shadow(0px 10px 40px rgba(75, 86, 133, 0.15))
+    -moz-filter: drop-shadow(0px 10px 40px rgba(75, 86, 133, 0.15))
+    -o-filter: drop-shadow(0px 10px 40px rgba(75, 86, 133, 0.15))
+    -ms-filter: drop-shadow(0px 10px 40px rgba(75, 86, 133, 0.15))
+    filter: drop-shadow(0px 10px 40px rgba(75, 86, 133, 0.15))
+    @include plus700()
+        padding: 0 20px
+    @include plus1025()
+        padding: 0 30px
+    @include plus1441()
+        margin-bottom: 40px
+        font-size: 20px
+        line-height: 26px
+    @include sizePlus(1637px)
+    &__p
+        display: block
+        pointer-events: none
+        width: 100%
+        text-transform: uppercase
+        font-size: 18px
+        line-height: 24px
+        white-space: nowrap
+        width: max-content
+        position: relative
+        transition: .4s
+        // white-space: nowrap
+        transform-origin: center
+        @include plus1441()
+            font-size: 20px
+            line-height: 26px
+        &.running
+            color: $runningstring
+            animation: goleft linear infinite
+            animation-delay: 300ms 
+        &__container
+            width: 100%
+            display: flex
+            align-items: center
+            height: 100%
+            overflow: hidden
+            max-width: $max-width !important
+
+
