@@ -1,0 +1,216 @@
+.zone__two
+    display: block
+    margin-bottom: 30px
+    @include plus1025()
+        position: relative
+    @include plus1441()
+        position: static
+        margin-bottom: 40px
+    h2
+        text-transform: uppercase
+        font-size: 18px
+        line-height: 24px
+        margin-bottom: 30px
+        color: $blue
+        @include plus1441()
+            font-size: 20px
+            line-height: 26px
+            margin-bottom: 20px
+    &__left
+        // display: inline-block
+        @include plus700()
+            float: left
+            width: calc( 100% - #{170px + 19px} )
+        @include plus1025()
+            width: calc( 100% - #{293px + 49px} )
+
+        @include plus1441()
+            width: calc( 100% - #{227px + 49px} )
+        .differentArticles
+            width: 100%
+            margin-bottom: 30px
+            @include plus1441()
+                margin-bottom: 40px
+            &__wrapper
+                width: 100%
+                @include plus700()
+                    display: grid
+                    grid-gap: 25px 49px
+                    grid-template-columns: repeat(2, 1fr)
+                @include plus1025()
+                    grid-gap: 25px 49px
+                    grid-template-columns: repeat(3, 1fr)
+                @include plus1441()
+                    grid-gap: 20px 10px
+                    grid-template-columns: repeat(5, 1fr)
+            &__article
+                width: 100%
+                display: flex
+                flex-direction: column
+
+
+                &:not(:nth-of-type(5))
+                    margin-bottom: 20px
+                    @include plus700()
+                        margin-bottom: 0
+                &:nth-child(n+6)
+                    display: none
+                    @include plus700()
+                        display: flex
+                &:active
+                    img
+                        // transform: scale(1.1)
+                    .differentArticles__article
+                        &__bottom
+                            background-color: $blue
+                        &__textbox
+                            color: #fff
+                        &__readmore
+                            color: #fff
+                        &__date
+                            color: #fff
+                @include plus1025()
+                    &:hover
+                        .differentArticles__article
+                            &__bottom
+                                background-color: $blue
+                            &__textbox
+                                color: #fff
+                            &__readmore
+                                color: #fff
+                            &__date
+                                color: #fff
+                        img
+                            // transform: scale(1.1)
+                
+
+
+                box-shadow: 0px 10px 30px rgba(56, 63, 92, 0.15)
+
+                &:nth-child(n+10)
+                    @include plus1025()
+                        display: none !important
+                    @include plus1441()
+                        display: flex !important
+                @include plus1441()
+                    height: 354px
+                
+                &:nth-child(n+9)
+                    @include plus700()
+                        display: none
+                    @include plus1025()
+                        display: flex
+                &__imgbox
+                    width: 100%
+                    overflow: hidden
+                    position: relative
+                    color: #fff
+                    height: 193px
+                    img
+                        height: 100%
+                        width: 100%
+                        object-fit: cover
+                        transition: transform .2s ease-in
+                    @include plus1441()
+                        &__categoryname, h5
+                            position: absolute
+                            left: 16px
+
+                        &__categoryname
+                            top: 11px
+                            text-transform: capitalize
+                            @include font(14px, 19px)
+                        h5
+                            bottom: 8px
+                            width: calc( 100% - 32px )
+                            font-size: 16px
+                            line-height: 21px
+                            text-transform: uppercase
+                            @include maxcolumn(2)
+                            
+                &__bottom
+                    padding: 20px 16px
+                    @include plus1441()
+                    background-color: transparent
+                    transition: backgounr-color .1s linear
+                    &__bottom
+                        display: flex
+                        align-items: center
+                        justify-content: space-between
+
+                &__textbox
+                    height: 90px                
+                    @include font(16px, 21px)
+                    font-family: rbtreg
+                    margin-bottom: 10px
+                    color: $fontblack
+                    transition: color .05s linear
+                    p
+                        @include maxcolumn(4)
+                &__date
+                    color: $placeholder
+                    transition: color .1s linear
+                    @include font(16px, 21px)
+                &__readmore
+                    color: $blue 
+                    @include font(16px, 21px)
+                    transition: color .1s linear
+                    text-align: right
+                    text-transform: capitalize
+
+        .categoryArticles__specific
+            display: flex
+            @include plus700()
+                .popularArticlesWrapper
+                    position: absolute
+                    display: grid
+                    grid-gap: 25px 10px
+                    width: calc( 100% - 40px )
+                    grid-template-columns: repeat(2, 1fr)
+                    > article
+                        display: flex
+                            
+            @include plus1025()
+                .categoryArticles__specific__left
+                    min-height: 653px
+                .popularArticlesWrapper
+                    position: absolute
+                    width: calc( 100% - 60px )
+                    grid-template-columns: repeat(3, 1fr)
+                    .categoryArticles__specific__article
+                        &:nth-child(n+6)
+                            display: none
+                            @include plus1441()
+                                display: flex
+            @include plus1441()
+                padding-right: #{188px - 49px}
+                .popularArticlesWrapper
+                    position: static
+                    width: unset
+        
+                .categoryArticles__specific__left
+                    min-height: unset
+        .popularArticlesWrapper
+            @include plus700()
+                grid-template-columns: repeat(2, 1fr)
+
+    &__right
+        display: inline-block
+        float: right
+        height: 100%
+        position: relative
+        @include plus700()
+            width: 170px
+        @include plus1025()
+            width: 293px
+        @include plus1441()
+            width: 227px
+
+.categoryArticles__specific__article__skipper
+    display: none
+    @include plus1025()
+        grid-column: 3 / 4
+        grid-row: 1 / 2
+        display: flex
+    @include plus1441()
+        display: none
