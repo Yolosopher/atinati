@@ -1,7 +1,7 @@
 @import 'fonts';
-@import 'variables';
-.datepicker {
-}
+
+$fontblack : #4B4B4B;
+
 .calendar {
 	position: relative;
 	overflow: hidden;
@@ -11,7 +11,15 @@
 	color: #545a5c;
 	padding: 19px;
 	box-shadow: 0px 10px 30px rgba(56, 63, 92, 0.15);
+	
+	left: 22px;
+	width: calc( 100vw - 84px );
+	@media screen and (min-width: 700px) {
+		width: unset;
+		left: unset;
+	}
 	header {
+		width: 100%
 		// margin-bottom: 20px;
 	}
 }

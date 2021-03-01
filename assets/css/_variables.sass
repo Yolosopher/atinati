@@ -7,6 +7,7 @@ $fontblack: #4B4B4B
 $curRed: #E92020
 $curGreen: #259F25
 $runningstring: #707070
+$radiobtnbg: #D4D9DC
 
 $width450: 450px
 $width700: 700px
@@ -81,3 +82,8 @@ input[type=number]
     display: -webkit-box
     -webkit-line-clamp: $num /* number of lines to show */
     -webkit-box-orient: vertical
+
+
+@mixin font($size, $lnh) 
+    font-size: $size
+    line-height: $lnh

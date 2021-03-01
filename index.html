@@ -317,7 +317,7 @@
     </section>
     <!-- /running string -->
 
-
+    <!-- zone1 -->
     <div class="zone zone__one container">
         <div class="zone__one__left">
             <!-- today's main news -->
@@ -447,7 +447,51 @@
                 <div class="categoryArticles__specific__right">
                     <div id="datepicker" class="datepicker"></div>
                     <div class="categoryArticles__specific__right__voting">
-                        need to put VOTING SYSTEM
+                        <div class="categoryArticles__specific__right__voting__inside">
+                            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing eli?</h3>
+                            <div class="categoryArticles__specific__right__voting__contents">
+                                <form id="votingForm" class="categoryArticles__specific__right__voting__form">
+                                    <ul class="categoryArticles__specific__right__voting__form__ul">
+                                        <li class="categoryArticles__specific__right__voting__form__ul__li">
+                                            <input type="radio" required name="questionnaire" id="votingForm__yes" value="yes">
+                                            <label for="votingForm__yes"><span class="customRadioInput"></span> yes</label>
+                                        </li>
+                                        <li class="categoryArticles__specific__right__voting__form__ul__li">
+                                            <input type="radio" required name="questionnaire" id="votingForm__no" value="no">
+                                            <label for="votingForm__no"><span class="customRadioInput"></span> no</label>
+                                        </li>
+                                        <li class="categoryArticles__specific__right__voting__form__ul__li">
+                                            <input type="radio" required name="questionnaire" id="votingForm__dontknow" value="dontknow">
+                                            <label for="votingForm__dontknow"><span class="customRadioInput"></span> don't know</label>
+                                        </li>
+                                        <li class="categoryArticles__specific__right__voting__form__ul__li">
+                                            <input type="radio" required name="questionnaire" id="votingForm__maybe" value="maybe">
+                                            <label for="votingForm__maybe"><span class="customRadioInput"></span> maybe</label>
+                                        </li>
+                                        <li class="categoryArticles__specific__right__voting__form__ul__group">
+                                            <input type="radio" required name="questionnaire" id="votingForm__whynot" value="whynot">
+                                            <label for="votingForm__whynot"><span class="customRadioInput"></span> why not?!</label>
+                                        </li>
+                                    </ul>
+                                    <input type="submit" value="Vote" class="categoryArticles__specific__right__voting__submitbtn">
+                                </form>
+                                <div class="categoryArticles__specific__right__voting__results">
+                                    <div class="categoryArticles__specific__right__voting__results__grid">
+                                        <div class="categoryArticles__specific__right__voting__results__percent"><span>20</span>%</div>
+                                        <div class="categoryArticles__specific__right__voting__results__answer" data-answer="yes">Yes</div>
+                                        <div class="categoryArticles__specific__right__voting__results__percent"><span>20</span>%</div>
+                                        <div class="categoryArticles__specific__right__voting__results__answer" data-answer="no">No</div>
+                                        <div class="categoryArticles__specific__right__voting__results__percent"><span>20</span>%</div>
+                                        <div class="categoryArticles__specific__right__voting__results__answer" data-answer="dontknow">don't know</div>
+                                        <div class="categoryArticles__specific__right__voting__results__percent"><span>20</span>%</div>
+                                        <div class="categoryArticles__specific__right__voting__results__answer" data-answer="maybe">maybe</div>
+                                        <div class="categoryArticles__specific__right__voting__results__percent"><span>20</span>%</div>
+                                        <div class="categoryArticles__specific__right__voting__results__answer" data-answer="whynot">why not?!</div>
+                                    </div>
+                                    <div class="categoryArticles__specific__right__voting__submitbtn">Thank's for a vote!</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="banner banner3 empty" testcontent="banner for placement"></div>
                 </div>
@@ -461,27 +505,83 @@
         <div class="zone__one__right">
         </div>
     </div>
+    <!-- /zone1 -->
 
-
+    <!-- zone2 -->
+    <div class="zone zone__two container">
+        
+    </div>
+    <!-- /zone2 -->
 
     <!-- import packages -->
     <script src="assets/js/dist/swiper-bundle.min.js"></script>
     <script src="assets/js/dist/jquery-3.2.1.min.js"></script>
     
     <script src="assets/js/dist/jquery.simple-calendar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js" integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ==" crossorigin="anonymous"></script>
     <!-- /import packages -->
 
     <!-- import scripts -->
 
 
-    <!-- datepicker -->
+    <!-- voting form -->
     <script>
-        let today = new Date()
-        // $('.datepicker').val(today);
-        // $('.datepicker').datepicker(today);
+        const votingForm = document.getElementById('votingForm')
+        
+        let percentValues = document.querySelectorAll('.categoryArticles__specific__right__voting__results__percent span')
+        percentValues = [...percentValues]
 
+        const updateVotes = (data) => {
+            try {
+                let entries = Object.entries(data)
+                let sumOfValues = Object.values(data).reduce((a, b) => a + b, 0)
+                
+                let percents = entries.map(entry => {
+                    returnEntry = [entry[0], Math.round(entry[1] / sumOfValues * 100)]
+                    return returnEntry
+                })
+                for (let i in percentValues) {
+                    percentValues[i].parentElement.nextElementSibling.innerText = percents[i][0]
+                    percentValues[i].innerText = percents[i][1]
+                }
+            } catch (err) {
+                console.log(err)
+            } finally {
+                votingForm.parentElement.classList.add('submitted')
+            }
+        }
+        // firstR
+        let responseSample = {
+            "yes": 20,
+            "no": 200,
+            "don't know": 130,
+            "maybe": 111,
+            "why not?!": 47
+        }
+
+        updateVotes(responseSample)
+
+
+
+
+
+        votingForm.addEventListener('submit', async (e) => {
+            e.preventDefault()
+            let dataToSend = votingForm.questionnaire.value
+            if (dataToSend !== '') {
+                let url = ''
+                // console.log(dataToSend)
+                // const response = axios.post(url, dataToSend)
+                // const data = response.data
+                if (responseSample) {
+                    updateVotes(responseSample)
+                }
+            }
+
+        })
     </script>
-    <!-- /datepicker -->
+    <!-- /voting form -->
+
     <script src="assets/js/dist/homepage.js"></script>
     <script src="assets/js/dist/main.js"></script>
     <!-- /import scripts -->
