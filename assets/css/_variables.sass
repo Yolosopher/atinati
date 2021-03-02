@@ -8,6 +8,7 @@ $curRed: #E92020
 $curGreen: #259F25
 $runningstring: #707070
 $radiobtnbg: #D4D9DC
+$skyblue: #e2ecf3
 
 $width450: 450px
 $width700: 700px
@@ -76,14 +77,3 @@ input[type=number]
         @include sizePlus(1637px)
             max-width: #{$max-width + $containerPadding * 2} !important
 
-@mixin maxcolumn($num)
-    overflow: hidden
-    text-overflow: ellipsis
-    display: -webkit-box
-    -webkit-line-clamp: $num /* number of lines to show */
-    -webkit-box-orient: vertical
-
-
-@mixin font($size, $lnh) 
-    font-size: $size
-    line-height: $lnh

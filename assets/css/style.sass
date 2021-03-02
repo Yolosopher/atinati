@@ -5,6 +5,24 @@
 body
     min-height: 300vh
 
+@mixin blur($px)
+    -webkit-filter: blur($px)
+    -moz-filter: blur($px)
+    -o-filter: blur($px)
+    -ms-filter: blur($px)
+    filter: blur($px)
+
+@mixin maxcolumn($num)
+    overflow: hidden
+    text-overflow: ellipsis
+    display: -webkit-box
+    -webkit-line-clamp: $num /* number of lines to show */
+    -webkit-box-orient: vertical
+
+@mixin font($size, $lnh)
+    font-size: $size
+    line-height: $lnh
+
 @import header
 @import weather
 @import homepageslider
@@ -12,5 +30,8 @@ body
 @import homepage-zone1
 @import banners
 @import homepage-zone2
+@import homepage-zone3
+@import footer
 
 
+    

@@ -80,3 +80,16 @@ $(document).ready(function () {
 		onDayCreate: function ($el, d, m, y) {}, // Callback fired when an HTML day is created   - see $(this).data('today'), .data('todayEvents')
 	})
 })
+
+// adviced articles sliders
+let advicedTitleSlider = new Swiper('.zone__three__titleslider', {
+	slidesPerView: 5,
+	direction: 'vertical',
+	slideToClickedSlide: true,
+})
+let advicedImageSlider = new Swiper('.zone__three__slider', {
+	slidesPerView: 1,
+	thumbs: {
+		swiper: advicedTitleSlider,
+	} 
+})

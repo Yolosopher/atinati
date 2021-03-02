@@ -1,11 +1,13 @@
 .zone__two
-    display: block
+    // display: block
     margin-bottom: 30px
+    display: table
+    clear: both
     @include plus1025()
         position: relative
+        margin-bottom: 0
     @include plus1441()
         position: static
-        margin-bottom: 40px
     h2
         text-transform: uppercase
         font-size: 18px
@@ -161,6 +163,8 @@
         .categoryArticles__specific
             display: flex
             @include plus700()
+                .categoryArticles__specific__left
+                    min-height: 995px
                 .popularArticlesWrapper
                     position: absolute
                     display: grid

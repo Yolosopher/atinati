@@ -1,0 +1,85 @@
+.footer
+    background-color: $blue
+    height: 379px
+    color: #fff
+    position: relative
+    @include plus700()
+        height: 279px
+    &__logo
+        grid-column: 1 / 3
+        display: flex
+        justify-content: center
+        align-items: center
+        justify-self: center
+        @include plus700()
+            height: unset
+            justify-self: unset
+            grid-column: unset
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+        .desktop
+            display: none
+            @include plus700()
+                display: unset
+        .mobile
+            @include plus700()
+                display: none
+    &__container
+        display: grid
+        height: 100%
+        align-items: center
+        align-content: space-between
+        justify-content: space-between
+        grid-template-columns: auto auto
+        // flex-direction: column
+        // justify-content: space-between
+        padding-top: 25px
+        padding-bottom: 25px
+        @include plus700()
+            padding-top: 57px
+            padding-bottom: 57px
+    
+    &__smartweb
+        grid-column: 1 / 3
+        text-align: center
+        @include font(18px, 24px)
+        text-transform: capitalize
+        @include plus700()
+            grid-column: unset
+    &__number
+        grid-column: 1 / 2
+        grid-row: 3 / 4
+        @include plus700()
+            grid-column: unset
+            grid-row: unset
+
+    &__email
+        grid-column: 1 / 2
+        grid-row: 4 / 5
+        @include plus700()
+            grid-column: unset
+            grid-row: unset
+    &__socials
+        grid-column: 1 / 3
+        @include plus700()
+            grid-column: unset
+        &__ul
+            display: flex
+            align-items: center
+            justify-content: space-between
+            @include plus700()
+                justify-content: unset
+            li
+                @include plus700()
+                    &:not(:last-child)
+                        margin-right: 29.5px
+    
+
+    .navitem
+        @include font(22px, 29px)
+        text-transform: capitalize
+    a:not(.navitem)
+        @include font(16px, 21px)
+        
