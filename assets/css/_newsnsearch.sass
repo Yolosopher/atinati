@@ -1,0 +1,282 @@
+.newsMain
+    margin-top: 15px
+    @include plus700()
+        margin-top: 0
+    h1
+        display: flex
+        align-items: center
+        color: $blue
+        padding-left: 11px
+        @include font(20px, 26px)
+        text-transform: uppercase
+        height: 50px
+        
+        @include plus700()     
+            height: unset       
+            padding-left: 20px
+        @include plus1441()
+            @include font(25px, 33px)
+    &.newsMainSearch
+        .newsMain__categorybar
+            margin-bottom: 30px
+            &__top
+                margin-bottom: 18px
+                @include plus700()
+                    margin-bottom: 30px  
+                h1
+                    text-transform: lowercase
+                    color: $fontblack
+                    font-family: rbtreg
+                    font-weight: normal
+                    @include font(18px, 24px)
+                    @include plus1025()
+                        @include font(20px, 26px)
+                    
+                
+    &__categorybar
+        margin-bottom: 30px
+        @include plus700()
+            margin-bottom: 50px
+        @include plus1025()
+            margin-bottom: 63px
+        @include plus1441()
+            margin-bottom: 55px
+        &__top
+            display: flex
+            align-items: center
+            justify-content: space-between
+            background: linear-gradient(90deg, #e2ecf3 0%, rgba(255, 255, 255, 0.06) 100%)
+
+            @include plus700()
+                height: 50px
+                margin-bottom: 40px
+            @include plus1025()
+                margin-bottom: 65px
+            @include plus1441()
+                height: 80px
+                margin-bottom: 40px
+            ul
+                display: none
+                @include plus700()
+                    display: grid
+        &__bottom
+            display: none
+
+            @include plus700()
+                display: block
+
+            &__categories
+                display: flex
+                height: 36px
+                justify-content: space-between
+                @include plus1025()
+                    justify-content: flex-start
+                li
+                    position: relative
+                    &:not(:last-child)
+                        @include plus1025()
+                            margin-right: 70px
+                    &::after
+                        content: url(../images/hoverTriangle.svg)
+                        // background-size: cover
+                        // background-repeat: no-repeat
+                        position: absolute
+                        right: 0
+                        bottom: -8px
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        height: 8px
+                        overflow: hidden
+                        width: 0
+                        border-bottom: 3px solid $blue
+
+                    a
+                        color: $fontblack
+                        @include font(18px, 24px)
+                        text-transform: capitalize
+                        @include plus1441()
+                            @include font(22px, 29px)
+                            
+                    &.active
+                        a
+                            color: $blue
+                            @include font(20px, 26px)
+                            @include plus1441()
+                                @include font(24px, 32px)
+                        &::after
+                            width: 100%    
+
+        &__searchbox
+            color: $placeholder
+            padding: 0 10px
+            @include font(18px, 24px)
+            display: block
+            font-family: rbtreg
+            align-items: center
+            justify-content: space-between              
+            @include plus700()
+                display: flex
+            @include plus1025()
+                @include font(20px, 26px)
+            p
+                &:first-child
+                    margin-bottom: 13px
+                    @include plus700()
+                        margin-bottom: 0
+    &__newsContainer
+        display: grid
+        grid-template-columns: 100%
+        grid-gap: 20px
+        padding-bottom: 50px
+        @include plus700()
+            grid-template-columns: repeat(2, 1fr)
+            grid-gap: 20px 16px
+            padding-bottom: 70px
+        @include plus1025()    
+            grid-template-columns: repeat(3, 1fr)
+            grid-gap: 20px 16px
+        @include plus1441()    
+            grid-template-columns: repeat(4, 1fr)
+            grid-gap: 20px 18px
+        
+        &__article
+            height: 287px
+            overflow: hidden
+            width: 100%
+            position: relative
+            display: flex
+            flex-direction: column
+            filter: drop-shadow(0px 10px 30px rgba(56, 63, 92, 0.15))
+            background-color: #fff
+
+            &__imgbox
+                height: 100px
+                flex-grow: 1
+                position: relative
+                overflow: hidden
+                img
+                    height: 100%
+                    width: 100%
+                    transform: scale(1)
+                    object-fit: cover
+                    transition: transform .25s ease-in
+
+            h2
+                @include font(16px, 21px)
+                text-transform: uppercase
+                color: #fff
+                @include maxcolumn(2)
+                position: absolute
+                bottom: 10px
+                left: 20px
+                transform: translateY(0)
+                transition: transform .25s ease-in
+
+            &__shown
+                position: relative
+                z-index: 1
+                background-color: #fff
+                padding: 17px 18px
+                bottom: 0
+                transition: bottom .25s ease-in
+                @include plus1025()
+                    padding: 17px 24px
+                &__textbox
+                    color: $fontblack
+                    p
+                        font-family: rbtreg
+                        @include maxcolumn(3)
+                        @include font(16px, 21px)
+                        text-transform: capitalize
+            &__hidden
+                position: absolute
+                bottom: 0
+                transform: translateY(100%)
+                right: 0
+                width: 100%
+                padding: 17px 18px
+                display: flex
+                align-items: center
+                justify-content: space-between
+                transition: transform .25s ease-in
+                @include plus1025()
+                    padding: 17px 24px
+
+            &__date
+                color: $placeholder
+                @include font(16px, 21px)
+                
+            &__readmore
+                @include font(16px, 21px)
+                text-transform: capitalize
+                border: 2px solid $blue
+                border-radius: 5px
+                background-color: #fff
+                color: $blue
+                display: flex
+                justify-content: center
+                align-items: center
+                height: 43px
+                width: 126px
+                transition: all .1s ease-out
+                &:hover
+                    background-color: $blue
+                    color: #fff
+
+            &:hover
+                h2
+                    transform: translateY(-77px)
+                    transition: transform .25s ease-out
+                .newsMain__newsContainer__article__imgbox
+                    img
+                        transform: scale(1.1)
+                        transition: transform .25s ease-out
+                .newsMain__newsContainer__article__shown
+                    bottom: 77px
+                    transition: bottom .25s ease-out
+                .newsMain__newsContainer__article__hidden
+                    transform: translateY(0%)
+                    transition: transform .25s ease-out
+
+
+    &__pagination
+        display: flex
+        justify-content: center
+        align-items: center
+        margin-bottom: 50px
+        @include plus700()
+            margin-bottom: 70px
+        @include plus1025()
+            margin-bottom: 58px
+        @include plus1441()
+            margin-bottom: 70px
+
+        &__dots
+            color: $placeholder
+            line-height: 2px
+            pointer-events: none
+            align-self: center
+        &__left, &__right
+            display: flex
+            cursor: pointer
+            justify-content: center
+            align-items: center
+            width: 37px
+            height: 37px
+            &:hover
+                svg
+                    path
+                        fill: $blue
+
+        &__wrapper
+            margin: 0 20px
+            display: flex
+            align-items: center
+            &__page
+                color: $placeholder
+                &.active
+                    color: $fontblack
+                &:not(:last-child)
+                    margin-right: 15px
+                    
