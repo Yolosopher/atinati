@@ -35,7 +35,23 @@ function initMap() {
 
 const contactForm = document.querySelector('.contactMain__mapandform__form')
 
+// validations
+// let nameInput = document.getElementById('name')
+// let emailInput = document.getElementById('email')
+// let textareaInput = document.getElementById('textarea')
 
+// nameInput.addEventListener('change', (e) => {
+    
+// })
+
+// const nameChecker = (el) => {
+//     if (el.value.length < 2) {
+//         el.parentElement.classList.add('invalid')
+//         el.parentElement.classList.add('invalid-shown')
+//     } 
+// }
+
+// form submit
 
 contactForm.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -49,7 +65,7 @@ contactForm.addEventListener('submit', async (e) => {
     // console.log(dataToSend)
     const response = await axios.post(contactAjaxURL, dataToSend)
         .catch(err => console.log(err.message))
-        
+
     const data = response.data
 
     if(!data) {
