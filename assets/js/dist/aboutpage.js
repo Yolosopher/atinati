@@ -1,4 +1,42 @@
-parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcelRequire,u="function"==typeof require&&require;function f(t,n){if(!r[t]){if(!e[t]){var i="function"==typeof parcelRequire&&parcelRequire;if(!n&&i)return i(t,!0);if(o)return o(t,!0);if(u&&"string"==typeof t)return u(t);var c=new Error("Cannot find module '"+t+"'");throw c.code="MODULE_NOT_FOUND",c}p.resolve=function(r){return e[t][1][r]||r},p.cache={};var l=r[t]=new f.Module(t);e[t][0].call(l.exports,p,l,l.exports,this)}return r[t].exports;function p(e){return f(p.resolve(e))}}f.isParcelRequire=!0,f.Module=function(e){this.id=e,this.bundle=f,this.exports={}},f.modules=e,f.cache=r,f.parent=o,f.register=function(r,t){e[r]=[function(e,r){r.exports=t},{}]};for(var c=0;c<t.length;c++)try{f(t[c])}catch(e){i||(i=e)}if(t.length){var l=f(t[t.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==typeof define&&define.amd?define(function(){return l}):n&&(this[n]=l)}if(parcelRequire=f,i)throw i;return f}({"ADDG":[function(require,module,exports) {
-var e=document.querySelectorAll(".aboutMain__article__textdiv p"),t=document.querySelector(".aboutMain__article__textdiv"),n=document.querySelector(".aboutMain__imgbox img"),o=function(){if(window.innerWidth<=1024){if(t.querySelector(".aboutMain__imgbox"))return;console.log("matchmedia true");var o=n.getAttribute("src");n.parentElement.style.display="none";var i=document.createElement("div");i.classList.add("aboutMain__imgbox"),i.innerHTML='\n                <img src="'.concat(o,'" />\n            '),t.insertBefore(i,e[1])}else n.parentElement.style.display="block",t.querySelector(".aboutMain__imgbox")&&t.querySelector(".aboutMain__imgbox").remove()};e.length>1&&(console.log("callin function"),o()),window.addEventListener("resize",function(){e.length>1&&(console.log("callin function"),o())});
-},{}]},{},["ADDG"], null)
-//# sourceMappingURL=/aboutpage.js.map
+const paraghrapsInTextDiv = document.querySelectorAll('.aboutMain__article__textdiv p')
+
+const textDiv = document.querySelector('.aboutMain__article__textdiv')
+
+const img = document.querySelector('.aboutMain__imgbox img')
+
+const imgCopyOnMobile = () => {
+    if (window.innerWidth <= 1024) {
+        if (textDiv.querySelector('.aboutMain__imgbox')) {
+            return
+        } else {
+            console.log('matchmedia true')
+            
+            let src = img.getAttribute('src')
+            img.parentElement.style.display = 'none'
+            let newImgBox = document.createElement('div')
+            newImgBox.classList.add('aboutMain__imgbox')
+            newImgBox.innerHTML = `
+                <img src="${src}" />
+            `
+            textDiv.insertBefore(newImgBox, paraghrapsInTextDiv[1])
+        }
+    } else {
+        img.parentElement.style.display = 'block'
+        if (textDiv.querySelector('.aboutMain__imgbox')) {
+            textDiv.querySelector('.aboutMain__imgbox').remove()
+        }
+    }
+}
+
+
+
+if (paraghrapsInTextDiv.length > 1) {
+    console.log('callin function')    
+    imgCopyOnMobile()
+} 
+window.addEventListener('resize', () => {
+    if (paraghrapsInTextDiv.length > 1) {
+        console.log('callin function')    
+        imgCopyOnMobile()
+    } 
+})

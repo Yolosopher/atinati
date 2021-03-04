@@ -1,4 +1,67 @@
-parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcelRequire,u="function"==typeof require&&require;function f(t,n){if(!r[t]){if(!e[t]){var i="function"==typeof parcelRequire&&parcelRequire;if(!n&&i)return i(t,!0);if(o)return o(t,!0);if(u&&"string"==typeof t)return u(t);var c=new Error("Cannot find module '"+t+"'");throw c.code="MODULE_NOT_FOUND",c}p.resolve=function(r){return e[t][1][r]||r},p.cache={};var l=r[t]=new f.Module(t);e[t][0].call(l.exports,p,l,l.exports,this)}return r[t].exports;function p(e){return f(p.resolve(e))}}f.isParcelRequire=!0,f.Module=function(e){this.id=e,this.bundle=f,this.exports={}},f.modules=e,f.cache=r,f.parent=o,f.register=function(r,t){e[r]=[function(e,r){r.exports=t},{}]};for(var c=0;c<t.length;c++)try{f(t[c])}catch(e){i||(i=e)}if(t.length){var l=f(t[t.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==typeof define&&define.amd?define(function(){return l}):n&&(this[n]=l)}if(parcelRequire=f,i)throw i;return f}({"epB2":[function(require,module,exports) {
-var e=window.matchMedia("(min-width: 1025)"),t=document.querySelector(".lang-select li.active"),r=document.querySelector("body"),c=document.querySelector(".header__left__categories__button"),n=document.querySelector(".respo__burger"),i=document.querySelector(".weathercurrency__left"),o=document.querySelector(".header__left__categories__button__close"),a=document.querySelector(".header__right__searchform"),l=document.querySelector(".header__right__searchform__close"),u=function(){arguments.length>0&&void 0!==arguments[0]&&arguments[0]?c.parentElement.classList.remove("active"):c.parentElement.classList.add("active")};c.addEventListener("click",function(){u()}),n.addEventListener("click",function(){u()}),o.addEventListener("click",function(){u(!0)}),a.addEventListener("submit",function(e){if(!a.classList.contains("active"))return e.preventDefault(),void a.classList.add("active")}),l.addEventListener("click",function(){a.classList.remove("active")}),t.addEventListener("click",function(e){e.preventDefault(),t.parentElement.classList.toggle("togged")});var d=function(){var e=document.querySelectorAll("article a"),t=document.querySelectorAll(".homeMain__slider__slide__right__readmore");e.forEach(function(e){return e.setAttribute("href","article.html")}),t.forEach(function(e){return e.setAttribute("href","article.html")})};d();
-},{}]},{},["epB2"], null)
-//# sourceMappingURL=/main.js.map
+const matchmediaMin1025 = window.matchMedia('(min-width: 1025)')
+
+// VARIABLES
+const currentLang = document.querySelector('.lang-select li.active')
+const body = document.querySelector('body')
+const headerCatButton = document.querySelector(
+	'.header__left__categories__button'
+)
+const headerCatButtonRespo = document.querySelector('.respo__burger')
+const weatherCurrencyLeft = document.querySelector('.weathercurrency__left')
+const headerCatButtonClose = document.querySelector(
+	'.header__left__categories__button__close'
+)
+const searchForm = document.querySelector('.header__right__searchform')
+const searchFormCloseBtn = document.querySelector(
+	'.header__right__searchform__close'
+)
+
+// headertoggle
+const headerCatToggle = (close = false) => {
+	if (close) {
+		headerCatButton.parentElement.classList.remove('active')
+	} else {
+		headerCatButton.parentElement.classList.add('active')
+	}
+}
+headerCatButton.addEventListener('click', () => {
+	// body.classList.toggle('noscroll')
+	headerCatToggle()
+})
+headerCatButtonRespo.addEventListener('click', () => {
+	headerCatToggle()
+})
+
+headerCatButtonClose.addEventListener('click', () => {
+	headerCatToggle(true)
+})
+
+// searchtoggle
+searchForm.addEventListener('submit', (e) => {
+	if (!searchForm.classList.contains('active')) {
+		e.preventDefault()
+		searchForm.classList.add('active')
+		return
+	}
+})
+searchFormCloseBtn.addEventListener('click', () => {
+	searchForm.classList.remove('active')
+})
+currentLang.addEventListener('click', (e) => {
+	e.preventDefault()
+	currentLang.parentElement.classList.toggle('togged')
+})
+
+
+
+
+// in markme only
+const articleHrefUpdate = () => {
+	const articleHrefs = document.querySelectorAll('article a')
+	const readMores = document.querySelectorAll('.homeMain__slider__slide__right__readmore')
+
+    articleHrefs.forEach(href => href.setAttribute('href', 'article.html'))
+    readMores.forEach(href => href.setAttribute('href', 'article.html'))
+}
+
+articleHrefUpdate()

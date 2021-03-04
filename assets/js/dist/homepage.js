@@ -1,4 +1,95 @@
-parcelRequire=function(e,r,t,n){var i,o="function"==typeof parcelRequire&&parcelRequire,u="function"==typeof require&&require;function f(t,n){if(!r[t]){if(!e[t]){var i="function"==typeof parcelRequire&&parcelRequire;if(!n&&i)return i(t,!0);if(o)return o(t,!0);if(u&&"string"==typeof t)return u(t);var c=new Error("Cannot find module '"+t+"'");throw c.code="MODULE_NOT_FOUND",c}p.resolve=function(r){return e[t][1][r]||r},p.cache={};var l=r[t]=new f.Module(t);e[t][0].call(l.exports,p,l,l.exports,this)}return r[t].exports;function p(e){return f(p.resolve(e))}}f.isParcelRequire=!0,f.Module=function(e){this.id=e,this.bundle=f,this.exports={}},f.modules=e,f.cache=r,f.parent=o,f.register=function(r,t){e[r]=[function(e,r){r.exports=t},{}]};for(var c=0;c<t.length;c++)try{f(t[c])}catch(e){i||(i=e)}if(t.length){var l=f(t[t.length-1]);"object"==typeof exports&&"undefined"!=typeof module?module.exports=l:"function"==typeof define&&define.amd?define(function(){return l}):n&&(this[n]=l)}if(parcelRequire=f,i)throw i;return f}({"GQC4":[function(require,module,exports) {
-var e=document.querySelectorAll(".weathercurrency__left__tabs div");e.forEach(function(n){n.addEventListener("click",function(){e.forEach(function(e){e.classList.toggle("active")}),weatherCurrencyLeft.classList.toggle("currency")})});var n=new Swiper(".homeMain__slider",{slidesPerView:1,spaceBetween:1,navigation:{nextEl:".homeMain__slider__navright",prevEl:".homeMain__slider__navleft"},pagination:{el:".homeMain__slider__pagination",type:"bullets"},loop:!0,autoplay:{delay:5e3,disableOnInteraction:!1}}),t=document.querySelector(".runningString__p"),i=function(e){var n=+e.clientWidth/4*39;e.style.animationDuration="".concat(n,"ms"),setTimeout(function(){e.classList.add("running")},50)};$(document).ready(function(){i(t),$("#datepicker").simpleCalendar({months:["january","february","march","april","may","june","july","august","september","october","november","december"],days:["su","mo","tu","we","th","fr","sa"],displayYear:!0,fixedStartDay:0,displayEvent:!0,disableEventDetails:!0,disableEmptyDetails:!0,events:[],onInit:function(e){},onMonthChange:function(e,n){},onDateSelect:function(e,n){},onEventSelect:function(){},onEventCreate:function(e){},onDayCreate:function(e,n,t,i){}})});var a=new Swiper(".zone__three__titleslider",{slidesPerView:5,direction:"vertical",slideToClickedSlide:!0}),r=new Swiper(".zone__three__slider",{slidesPerView:1,thumbs:{swiper:a}});
-},{}]},{},["GQC4"], null)
-//# sourceMappingURL=/homepage.js.map
+const weathcurrTabs = document.querySelectorAll(
+	'.weathercurrency__left__tabs div'
+)
+
+weathcurrTabs.forEach((each) => {
+	each.addEventListener('click', () => {
+		weathcurrTabs.forEach((one) => {
+			one.classList.toggle('active')
+		})
+		weatherCurrencyLeft.classList.toggle('currency')
+	})
+})
+
+const homeMainSlider = new Swiper('.homeMain__slider', {
+	slidesPerView: 1,
+	spaceBetween: 1,
+	navigation: {
+		nextEl: '.homeMain__slider__navright',
+		prevEl: '.homeMain__slider__navleft',
+	},
+	pagination: {
+		el: '.homeMain__slider__pagination',
+		type: 'bullets',
+	},
+	loop: true,
+	autoplay: {
+		delay: 5000,
+		disableOnInteraction: false,
+	},
+})
+const runningstringP = document.querySelector('.runningString__p')
+const setRunningStringSpeed = (el) => {
+	const width = el.clientWidth
+	const speed = (+width / 4) * 39
+	el.style.animationDuration = `${speed}ms`
+	setTimeout(() => {
+		el.classList.add('running')
+	}, 50)
+}
+$(document).ready(function () {
+	setRunningStringSpeed(runningstringP)
+
+	$('#datepicker').simpleCalendar({
+		//Defaults options below
+		//string of months starting from january
+		months: [
+			'january',
+			'february',
+			'march',
+			'april',
+			'may',
+			'june',
+			'july',
+			'august',
+			'september',
+			'october',
+			'november',
+			'december',
+		],
+		days: [
+			'su',
+			'mo',
+			'tu',
+			'we',
+			'th',
+			'fr',
+			'sa',
+		],
+		displayYear: true, // Display year in header
+		fixedStartDay: 0, // Week begin always by monday or by day set by number 0 = sunday, 7 = saturday, false = month always begin by first day of the month
+		displayEvent: true, // Display existing event
+		disableEventDetails: true, // disable showing event details
+		disableEmptyDetails: true, // disable showing empty date details
+		events: [], // List of events
+		onInit: function (calendar) {}, // Callback after first initialization
+		onMonthChange: function (month, year) {}, // Callback on month change
+		onDateSelect: function (date, events) {}, // Callback on date selection
+		onEventSelect: function () {}, // Callback on event selection - use $(this).data('event') to access the event
+		onEventCreate: function ($el) {}, // Callback fired when an HTML event is created - see $(this).data('event')
+		onDayCreate: function ($el, d, m, y) {}, // Callback fired when an HTML day is created   - see $(this).data('today'), .data('todayEvents')
+	})
+})
+
+// adviced articles sliders
+let advicedTitleSlider = new Swiper('.zone__three__titleslider', {
+	slidesPerView: 5,
+	direction: 'vertical',
+	slideToClickedSlide: true,
+})
+let advicedImageSlider = new Swiper('.zone__three__slider', {
+	slidesPerView: 1,
+	thumbs: {
+		swiper: advicedTitleSlider,
+	} 
+})
