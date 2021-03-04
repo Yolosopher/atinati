@@ -76,4 +76,15 @@ input[type=number]
     &.homeMain__slider__slide__container
         @include sizePlus(1637px)
             max-width: #{$max-width + $containerPadding * 2} !important
+.container8
+    margin: 0 auto
+    padding: 0 $containerPaddingIpad
+    @include plus1025()
+        padding: 0 $containerPadding
+        width: 100%
+        &:not(.homeMain__slider__slide__container)
+            max-width: #{$max-width + $containerPadding * 2}
+    &.homeMain__slider__slide__container
+        @include sizePlus(1637px)
+            max-width: #{$max-width + $containerPadding * 2} !important
 

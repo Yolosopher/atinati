@@ -51,3 +51,17 @@ currentLang.addEventListener('click', (e) => {
 	e.preventDefault()
 	currentLang.parentElement.classList.toggle('togged')
 })
+
+
+
+
+// in markme only
+const articleHrefUpdate = () => {
+	const articleHrefs = document.querySelectorAll('article a')
+	const readMores = document.querySelectorAll('.homeMain__slider__slide__right__readmore')
+
+    articleHrefs.forEach(href => href.setAttribute('href', 'article.html'))
+    readMores.forEach(href => href.setAttribute('href', 'article.html'))
+}
+
+articleHrefUpdate()

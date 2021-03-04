@@ -1,0 +1,204 @@
+.articleMain
+    padding-top: 35px
+    padding-bottom: 60px
+    @include plus700()
+        padding-bottom: 70px
+        padding-top: 40px
+    @include plus1025()
+        padding-bottom: 130px
+        padding-top: 43px
+    @include plus1441()
+        padding-top: 45px
+    &__article
+
+        &__header
+            margin-bottom: 20px
+            @include plus1025()
+                margin-bottom: 30px
+            h1
+                text-transform: uppercase
+                @include font(20px, 26px)
+                color: $fontblack
+                margin-bottom: 24px
+                @include plus700() 
+                    margin-bottom: 20px
+                @include plus1025()
+                    margin-bottom: 30px
+                    @include font(25px, 33px)
+            &__categoryname
+                text-transform: capitalize
+                color: $blue
+                @include font(18px, 24px)
+                margin-bottom: 10px
+                @include plus700()
+                    margin-bottom: 15px
+                    @include font(22px, 29px)
+            &__date
+                color: $placeholder
+                @include font(16px, 21px)
+                
+        &__imgbox
+            height: 195px
+            width: 100%
+            margin-bottom: 30px
+            @include plus700()
+                margin-bottom: 50px
+            @include plus1025()
+                height: 327px
+            @include plus1441()
+                height: 440px
+                margin-bottom: 80px
+
+            img
+                height: 100%
+                width: 100%
+                object-fit: cover
+
+.contentandrelated
+    width: 100%
+    margin-bottom: 40px
+
+    @include plus1025()
+        display: grid
+        grid-template-columns: 54.87% auto 1fr
+        grid-gap: 4.34%
+        margin-bottom: 85px
+    @include plus1441()
+        margin-bottom: 50px
+    &__hr
+        display: block
+        width: 100%
+        height: 3px
+        margin-top: 40px
+        margin-bottom: 40px
+        background-color: $blue
+        @include plus700()
+            margin: 0 auto
+            margin-top: 40px
+            margin-bottom: 30px
+            width: 100%
+            max-width: calc( 100% - 128px )
+        @include plus1025()
+            max-width: unset
+            width: 3px
+            height: 100%
+            margin: 0
+            margin-top: 33px
+            margin-bottom: 0
+        @include plus1441()
+            margin-top: 20px
+
+    &__left
+        &__watchvid
+            margin: 0 auto
+            text-transform: capitalize
+            cursor: pointer
+            color: $blue
+            display: flex
+            justify-content: space-between
+            align-items: center
+            box-shadow: 0px 10px 30px rgba(56, 63, 92, 0.16)
+            border-radius: 15px
+
+            padding-left: 16px
+            padding-right: 29px
+
+            @include font(18px, 22px)
+            width: 208px
+            height: 57px
+            margin-bottom: 30px
+            @include plus700()
+                margin-bottom: 50px
+                @include font(22px, 29px)                
+                width: 288px
+                height: 79px
+
+                padding: 0 46px
+            @include plus1441()
+                margin-bottom: 80px
+            span
+                display: flex
+                justify-content: center
+                align-items: center
+                border-radius: 50%
+                background-color: $blue
+                width: 36px
+                height: 36px
+                @include plus700()
+                    width: 51px
+                    height: 51px
+
+            svg
+                &:first-child
+                    @include plus700()
+                        display: none
+                &:last-child
+                    display: none
+                    @include plus700()
+                        display: unset
+    
+        &__textbox
+            color: $fontblack
+            font-family: rbtreg
+            @include font(22px, 30px)
+            text-transform: lowercase
+            @include plus700()
+                margin: 0 auto
+                width: 100%
+                max-width: calc( 100% - 128px )
+            @include plus1025()
+                margin: 0
+                max-width: unset
+
+            p
+                &:not(:last-child)
+                    margin-bottom: 1em
+                    
+    &__right
+        @include plus1025()
+            margin-top: 33px
+        @include plus1441()
+            margin-top: 20px
+        &__header
+            display: flex
+            align-items: center
+            justify-content: space-between
+            margin-bottom: 20px
+            @include plus1025()
+                margin-bottom: 40px
+            h2
+                text-transform: uppercase
+                @include font(20px, 26px)
+                color: $fontblack
+                @include plus1025()
+                    @include font(25px, 33px)
+                    
+            &__seeall
+                color: $placeholder
+                text-transform: capitalize
+                @include font(18px, 24px)
+                cursor: pointer
+                @include plus1025()
+                    @include font(22px, 29px)
+                    
+        &__wrapper
+            display: grid
+            grid-template-columns: 100%
+            grid-gap: 20px
+            @include plus700()
+                grid-template-columns: 1fr 1fr
+                grid-gap: 16px
+            @include plus1025()
+                grid-template-columns: 100%
+                grid-gap: 40px
+
+            .newsMain__newsContainer__article
+                @media screen and ( max-width: 699px )
+                    &:nth-of-type(n+4)
+                        display: none
+                @media screen and (min-width: 700px) and ( max-width: 1278px )
+                    &:nth-of-type(n+3)
+                        display: none
+                
+                
+         
