@@ -64,4 +64,4 @@ const articleHrefUpdate = () => {
     readMores.forEach(href => href.setAttribute('href', 'article.html'))
 }
 
-articleHrefUpdate()
+// articleHrefUpdate()

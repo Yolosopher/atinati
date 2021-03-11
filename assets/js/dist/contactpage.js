@@ -36,20 +36,59 @@ function initMap() {
 const contactForm = document.querySelector('.contactMain__mapandform__form')
 
 // validations
-// let nameInput = document.getElementById('name')
-// let emailInput = document.getElementById('email')
-// let textareaInput = document.getElementById('textarea')
+let nameInput = document.getElementById('name')
+let emailInput = document.getElementById('email')
+let textareaInput = document.getElementById('textarea')
+nameInput.addEventListener('change', (e) => {
+    nameChecker(nameInput)
+})
+emailInput.addEventListener('change', (e) => {
+    emailChecker(emailInput)
+})
+textareaInput.addEventListener('change', (e) => {
+    textareaChecker(textareaInput)
+})
 
-// nameInput.addEventListener('change', (e) => {
-    
-// })
+const nameChecker = (el) => {
+    if (el.value === '') {
+        el.parentElement.classList.add('invalid')
+        el.parentElement.classList.remove('invalid-shown')
+    } else if (el.value.length < 2) {
+        el.parentElement.classList.add('invalid')
+        el.parentElement.classList.add('invalid-shown')
+    } else {
+        el.parentElement.classList.remove('invalid')
+        el.parentElement.classList.remove('invalid-shown')
+    }
+}
 
-// const nameChecker = (el) => {
-//     if (el.value.length < 2) {
-//         el.parentElement.classList.add('invalid')
-//         el.parentElement.classList.add('invalid-shown')
-//     } 
-// }
+const textareaChecker = (el) => {
+    if (el.value === '') {
+        el.parentElement.classList.add('invalid')
+        el.parentElement.classList.remove('invalid-shown')
+    } else if (el.value.length < 10) {
+        el.parentElement.classList.add('invalid')
+        el.parentElement.classList.add('invalid-shown')
+    } else {
+        el.parentElement.classList.remove('invalid')
+        el.parentElement.classList.remove('invalid-shown')
+    }
+}
+
+const emailChecker = (el) => {
+    let ifEmail = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(el.value)
+    if (el.value === '') {
+        el.parentElement.classList.add('invalid')
+        el.parentElement.classList.remove('invalid-shown')
+    } else if (!ifEmail) {
+        el.parentElement.classList.add('invalid')
+        el.parentElement.classList.add('invalid-shown')
+    } else {
+        el.parentElement.classList.remove('invalid')
+        el.parentElement.classList.remove('invalid-shown')
+    }
+}
+
 
 // form submit
 
@@ -77,3 +116,37 @@ contactForm.addEventListener('submit', async (e) => {
         contactForm.classList.add('submitted')
     }
 })
+
+// contactForm.addEventListener('submit', async (e) => {
+//     e.preventDefault()
+//     nameChecker(nameInput)
+//     emailChecker(emailInput)
+//     textareaChecker(textareaInput)
+//     if (contactForm.querySelector('.invalid')) {
+//         contactForm.querySelectorAll('.invalid').forEach(inv => inv.classList.add('invalid-shown'))
+//     } else {
+//         let dataToSend = {
+//             _token: contactForm._token.value,
+//             name: contactForm.name.value,
+//             email: contactForm.email.value,
+//             message: contactForm.textarea.value
+//         }
+    
+//         // console.log(dataToSend)
+//         const response = await axios.post(contactAxiosURL, dataToSend)
+//             .catch(err => console.log(err.message))
+    
+//         const data = response.data.status
+//         console.log(Boolean(data))
+//         if(!data) {
+//             contactForm.classList.remove('submitted')
+//             contactForm.classList.add('error')
+//             textareaInput.parentElement.setAttribute('data-message', formResponseError)
+//         } else {
+//             console.log(data)        
+//             textareaInput.parentElement.setAttribute('data-message', formResponseSuccess)
+//             contactForm.classList.remove('error')
+//             contactForm.classList.add('submitted')
+//         }
+//     }
+// })

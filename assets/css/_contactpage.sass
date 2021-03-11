@@ -136,7 +136,8 @@
             align-self: flex-end
 .input-div
     margin-bottom: 20px
-
+    &.invalid.invalid-shown
+        border: 1px solid red
     &.textarea-div
         margin-bottom: 30px
         height: 166px
@@ -146,7 +147,8 @@
             top: 50%
             left: 50%
             transform: translate(-50%, -50%)
-            content: 'Your message has been successfully sent!'
+            // content: 'Your message has been successfully sent!'
+            content: attr(data-message)
             color: #50AE60
             @include font(16px, 21px)
             font-family: rbtreg
