@@ -2,7 +2,6 @@
 @import variables
 @import defaults
 
-
 @mixin blur($px)
     -webkit-filter: blur($px)
     -moz-filter: blur($px)
@@ -36,4 +35,18 @@
 @import contactpage
 @import articlepage
 
-           
+.calendar header .btn-prev
+    top: 19px
+
+    left: 17px
+
+.calendar header .btn-next
+    top: 19px
+
+    right: 17px
+
+@include sizePlus(1800px)
+    .calendar header .btn-next
+        right: 37px
+    .calendar header .btn-prev
+        left: 37px

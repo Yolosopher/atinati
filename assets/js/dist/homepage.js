@@ -86,6 +86,7 @@ let advicedTitleSlider = new Swiper('.zone__three__titleslider', {
 	slidesPerView: 5,
 	direction: 'vertical',
 	slideToClickedSlide: true,
+	
 })
 let advicedImageSlider = new Swiper('.zone__three__slider', {
 	slidesPerView: 1,
