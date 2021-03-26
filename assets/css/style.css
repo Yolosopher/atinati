@@ -3780,6 +3780,9 @@ body.noscroll {
 
 .newsMain.newsMainSearch .newsMain__categorybar__top {
   margin-bottom: 18px;
+  border-radius: 5px 0 0 5px;
+  min-height: 80px;
+  padding-left: 19px;
 }
 
 @media screen and (min-width: 700px) {
@@ -4426,6 +4429,12 @@ body.noscroll {
   }
 }
 
+@media screen and (min-width: 700px) {
+  .contactMain__mapandform {
+    padding: 0 30px;
+  }
+}
+
 @media screen and (min-width: 1279px) {
   .contactMain__mapandform {
     display: -ms-grid;
@@ -4438,6 +4447,7 @@ body.noscroll {
 
 @media screen and (min-width: 1441px) {
   .contactMain__mapandform {
+    padding: 0;
     grid-gap: 11.875%;
   }
 }

@@ -54,11 +54,14 @@
                 margin-right: 34px
 
     &__mapandform
+        @include plus700()
+            padding: 0 30px
         @include plus1025()
             display: grid
             grid-template-columns: 1fr 1fr
             grid-gap: 16px
         @include plus1441()
+            padding: 0
             grid-gap: 11.875%
 
         h2
