@@ -3333,6 +3333,8 @@ body.noscroll {
 
 .zone__three__title.swiper-slide-thumb-active {
   height: 61px;
+  font-size: 18px;
+  line-height: 24px;
 }
 
 .zone__three__title__clippath {
@@ -3380,8 +3382,12 @@ body.noscroll {
 @media screen and (min-width: 1279px) {
   .zone__three__title {
     height: 80px;
+    font-size: 16px;
+    line-height: 21px;
   }
   .zone__three__title.swiper-slide-thumb-active {
+    font-size: 20px;
+    line-height: 26px;
     height: 105px !important;
   }
 }
@@ -3389,8 +3395,12 @@ body.noscroll {
 @media screen and (min-width: 1441px) {
   .zone__three__title {
     height: 100px;
+    font-size: 20px;
+    line-height: 26px;
   }
   .zone__three__title.swiper-slide-thumb-active {
+    font-size: 30px;
+    line-height: 39px;
     height: 130px !important;
   }
 }

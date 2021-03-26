@@ -225,6 +225,7 @@
         // margin-right: 8px
         &.swiper-slide-thumb-active
             height: 61px
+            @include font(18px, 24px)
         &__clippath
             position: absolute
             display: inline-block
@@ -256,10 +257,15 @@
 
         @include plus1025()
             height: 80px
+            @include font(16px, 21px)
             &.swiper-slide-thumb-active
+                @include font(20px, 26px)
                 height: 105px !important
+
         @include plus1441()
             height: 100px
+            @include font(20px, 26px)
             &.swiper-slide-thumb-active
+                @include font(30px, 39px)
                 height: 130px !important
         
