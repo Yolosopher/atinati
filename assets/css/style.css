@@ -2463,6 +2463,14 @@ body.noscroll {
   }
 }
 
+.banner a {
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
 .banner img {
   width: 100%;
   height: 100%;
