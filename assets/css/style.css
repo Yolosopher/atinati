@@ -2463,6 +2463,13 @@ body.noscroll {
   }
 }
 
+.banner img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
 .zone__two {
   margin-bottom: 30px;
   display: table;
