@@ -262,10 +262,12 @@
         &__wrapper
             @include plus1025()
                 display: grid
-                grid-template-columns: repeat(2, 1fr)
+                grid-template-columns: repeat(2, 1fr)            
+                grid-template-rows: repeat(3, 287px)
                 grid-gap: 25px 16px 
             @include plus1441()
                 grid-template-columns: repeat(3, 1fr)
+                grid-template-rows: repeat(2, 287px)
                 grid-gap: 20px 16px 
 
         &__article

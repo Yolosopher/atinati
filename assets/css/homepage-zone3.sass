@@ -52,6 +52,12 @@
         position: relative
         height: 100%
         overflow: hidden
+        @include plus700()
+            height: 246px
+        @include plus1025()
+            height: 428px
+        @include plus1441()
+            height: 530px
     &__wrapper
         width: 100%
         display: flex
@@ -62,6 +68,12 @@
         position: relative
         flex-shrink: 0
         height: 100%
+        @include plus700()
+            height: 246px !important
+        @include plus1025()
+            height: 428px !important
+        @include plus1441()
+            height: 530px !important
         &__imgbox
             width: 100%
             height: 100%
