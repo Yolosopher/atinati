@@ -2820,6 +2820,8 @@ body.noscroll {
   .zone__two__left .categoryArticles__specific .popularArticlesWrapper {
     position: absolute;
     width: calc( 100% - 60px);
+    -ms-grid-rows: (287px)[2];
+        grid-template-rows: repeat(2, 287px);
     -ms-grid-columns: (1fr)[3];
         grid-template-columns: repeat(3, 1fr);
   }
